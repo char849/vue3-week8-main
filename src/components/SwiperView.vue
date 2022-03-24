@@ -17,7 +17,7 @@
             v-for="item in filterProducts"
             :key="item.id"
           >
-            <div class="card h-100" role="button" @click="getProduct(item.id)">
+            <div class="card h-100" role="button">
               <!-- Favorite icon -->
               <div class="card_Favorite" @click="setFavorite(item.id)">
                 <span v-if="favoriteList.includes(item.id)"
