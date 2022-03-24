@@ -216,25 +216,11 @@ export default {
       const categorys = this.products?.map((product) => product.category);
       this.list.ary = [...new Set(categorys)];
     },
-    paginationHandler(products, currentPage = 1) {
-      const productsPerPage = 10;
-      this.pagination = {
-        total_pages: Math.ceil(products.length / productsPerPage),
-        current_page: currentPage,
-        has_pre: currentPage > 1,
-        has_next: currentPage < Math.ceil(products.length / productsPerPage),
-        category: null,
-      };
-    },
-    changePage(page) {
-      this.paginationHandler(this.products, page);
-    },
     categoryHandler(type) {
       this.list.currentCategory = type;
-      const tempPorducts = this.products.filter(
+      this.products.filter(
         (product) => type === "all" || product.category === type
       );
-      this.paginationHandler(tempPorducts);
     },
   },
 };
