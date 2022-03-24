@@ -1,0 +1,22 @@
+.border-end-md {
+  @media (min-width: 768px) {
+    border-right: 1px solid $danger !important;
+  }
+}
+.text-dark {
+  &:hover {
+    color: $danger;
+  }
+}
+.list-group-item.active {
+  color: #fff!important;
+  background-color: $secondary !important;
+  border-color: $secondary !important;  
+}
+.page-item.active .page-link, .page-link:focus {
+  background-color:  $secondary !important;
+  color: #fff!important;
+}
+.page-link {
+  color: $dark !important;
+}

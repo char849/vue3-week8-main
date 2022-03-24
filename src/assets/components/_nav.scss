@@ -1,0 +1,23 @@
+.nav-link {
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+}
+.nav-item a {
+  @media (max-width: 767px) {
+    line-height: $spacer * 2.5;    
+  }
+}
+.navbar-collapse {
+  @media (max-width: 767px) {
+    margin-top: 20px;
+  }
+}
+
+.navbar-toggler,
+.navbar-toggler:focus {
+  @media (max-width: 767px) {
+    // border: 2px solid white !important;
+    box-shadow: 0 0 0 0 !important;
+  }
+}
