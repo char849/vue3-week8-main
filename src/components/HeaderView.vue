@@ -1,7 +1,6 @@
 <template>
-  <header class="position-relative" data-aos="fade-up">
+  <header class="position-relative mix-vh-100" data-aos="fade-up">
     <div class="bgImg banner justify-content-between align-items-center">
-      <div class="bgCover position-absolute"></div>
       <div
         class="position-absolute top-50 start-50 text-white text-center translate-middle"
       >
@@ -33,7 +32,7 @@
     </div>
   </header>
   <div class="container px-3 mt-0" id="intro">
-    <div class="row g-3 mb-5 mt-4">
+    <div class="row mb-5 mt-4">
       <div class="col-12 col-md-6 mt-4" data-aos="fade-up">
         <img
           class="img-fluid mt-5"
@@ -64,7 +63,7 @@
         </router-link>
       </div>
     </div>
-    <div class="row g-5 mb-2 flex-md-row-reverse" data-aos="fade-up">
+    <div class="row mb-2 flex-md-row-reverse" data-aos="fade-up">
       <div class="col-12 col-md-6">
         <img
           class="img-fluid"
@@ -101,11 +100,11 @@
   </div>
 </template>
 <style>
-.bgCover {
+/* .bgCover {
   height: 100vh;
   width: 100%;
-  /* background-color: rgba(0, 0, 0, 0.1); */
-}
+  background-color: rgba(0, 0, 0, 0.1);
+} */
 .bgImg {
   display: flex;
   flex-direction: column;
@@ -145,19 +144,19 @@
 }
 @-webkit-keyframes def {
   0% {
-    top: 30%;
+    top: 60%;
   }
 
   100% {
-    top: 60%;
+    top: 100%;
   }
 }
 @keyframes def {
   0% {
-    top: 30%;
+    top: 60%;
   }
   100% {
-    top: 60%;
+    top: 100%;
   }
 }
 

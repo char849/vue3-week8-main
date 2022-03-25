@@ -1,14 +1,19 @@
 <template>
   <header class="position-relative mb-7 mb-md-9">
     <img
-      class="bg-mask-60 img-cover pageBanner w-100"
+      class="bg-mask-60 d-lg-none d-block img-cover pageBanner w-100"
       src="@/assets/img/products.jpg"
       alt="關於漢文帝banner"
     />
+    <img
+      class="bg-mask-60 img-cover d-lg-block d-none pageBanner w-100"
+      src="@/assets/img/products-pc.jpg"
+      alt="關於漢文帝banner"
+    />
     <h2
-      class="position-absolute top-50 start-50 h2 fw-bold text-white-50 pageBanner-text"
+      class="position-absolute text-hv-center top-50 start-50 h2 fw-bold text-white-50 pageBanner-text"
     >
-      About Us
+      Products List
     </h2>
   </header>
   <div class="container px-3">

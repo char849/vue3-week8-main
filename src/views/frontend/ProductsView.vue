@@ -1,8 +1,13 @@
 <template>
   <header class="position-relative mb-7 mb-md-9">
     <img
-      class="bg-mask-60 img-cover pageBanner w-100"
+      class="bg-mask-60 d-lg-none d-block img-cover pageBanner w-100"
       src="@/assets/img/products.jpg"
+      alt="關於漢文帝banner"
+    />
+    <img
+      class="bg-mask-60 img-cover d-lg-block d-none pageBanner w-100"
+      src="@/assets/img/products-pc.jpg"
       alt="關於漢文帝banner"
     />
     <h2
@@ -237,5 +242,8 @@ export default {
   background-size: cover;
   background-position: center center;
   object-fit: cover;
+}
+img {
+  height: 80%;
 }
 </style>
