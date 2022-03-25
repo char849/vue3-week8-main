@@ -72,7 +72,7 @@
         />
       </div>
       <div
-        class="col-12 col-md-6 d-flex justify-content-center align-items-start flex-column"
+        class="col-12 col-md-6 d-flex mt-3 justify-content-center align-items-start flex-column"
         data-aos="fade-up"
       >
         <p class="h5 text-info fw-bold" data-aos="fade-up">
