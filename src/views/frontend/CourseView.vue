@@ -229,7 +229,7 @@
         課程QA <span class="material-icons-outlined"> help_outline </span>
       </p>
       <p class="h1 text-dark mb-5" data-aos="fade-up">常見問題</p>
-      <div class="row">
+      <div class="row" data-aos="fade-up">
         <div class="col">
           <div class="col">
             <ul class="list-unstyled">
