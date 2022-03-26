@@ -20,3 +20,16 @@
 .page-link {
   color: $dark !important;
 }
+
+// class
+.class {
+  background-color: #e8e7e7 !important; 
+}
+.class.active
+ {
+  background-color: $secondary !important;
+}
+.class:hover, .class:focus {
+  color: #fff !important;
+  background-color: $secondary !important;
+}

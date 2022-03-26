@@ -74,7 +74,7 @@
           <li class="nav-item">
             <router-link
               class="nav-link"
-              to="/cart"
+              to="/course"
               :class="[navClassList.nav, navClassList.text]"
               >課程招生</router-link
             >

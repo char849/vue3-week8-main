@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid product-area text-center pt-5 mt-6">
     <div class="container">
-      <p class="h5 text-info fw-bold" data-aos="fade-up">
+      <p class="h6 text-info fw-bold" data-aos="fade-up">
         客製案例 <span class="material-icons-outlined"> work_history </span>
       </p>
-      <p class="h1 text-success mb-5" data-aos="fade-up">特製造型公仔</p>
+      <p class="h1 text-dark mb-5" data-aos="fade-up">特製造型公仔</p>
       <swiper
         :breakpoints="breakpoints"
         :loop="true"

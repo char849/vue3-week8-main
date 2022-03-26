@@ -96,7 +96,9 @@
                     >
                   </template>
                   <template v-else>
-                    <del>原價： {{ item.origin_price }} 元</del>
+                    <del class="text-danger"
+                      >原價： {{ item.origin_price }} 元</del
+                    >
                     <span class="text-info h5 ms-auto"
                       >特價： {{ item.price }} 元</span
                     >

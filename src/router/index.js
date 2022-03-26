@@ -24,12 +24,18 @@ const routes = [
         component: () => import("../views/frontend/ProductView.vue"),
       },
       {
-        path: "favorite",
-        name: "favorite", // 產品列表
+        path: "favorite", // 我的最愛
+        name: "favorite",
         component: () => import("../views/frontend/FavoriteView.vue"),
       },
       {
+        path: "course", // 課程招生
+        name: "course",
+        component: () => import("../views/frontend/CourseView.vue"),
+      },
+      {
         path: "cart", // 購物車
+        name: "cart",
         component: () => import("../views/frontend/CartView.vue"),
       },
     ],

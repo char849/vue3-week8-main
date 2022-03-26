@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid product-area text-center pt-5 mt-6">
     <div class="container">
-      <p class="h5 text-info fw-bold" data-aos="fade-up">
+      <p class="h6 text-info fw-bold" data-aos="fade-up">
         純手工彩繪上色 <span class="material-icons"> palette </span>
       </p>
-      <p class="h1 text-success mb-5" data-aos="fade-up">最新熱銷商品</p>
+      <p class="h1 text-dark mb-5" data-aos="fade-up">最新熱銷商品</p>
       <template v-if="filterProducts.length > 0">
         <swiper
           :breakpoints="breakpoints"
@@ -52,7 +52,9 @@
                     >
                   </template>
                   <template v-else>
-                    <del>原價： {{ item.origin_price }} 元</del>
+                    <del class="text-danger"
+                      >原價： {{ item.origin_price }} 元</del
+                    >
                     <span class="text-info h5 ms-auto"
                       >特價： {{ item.price }} 元</span
                     >
