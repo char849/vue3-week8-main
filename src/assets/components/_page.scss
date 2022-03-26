@@ -9,13 +9,14 @@
   }
 }
 .list-group-item.active {
-  color: #fff!important;
+  color: #fff !important;
   background-color: $secondary !important;
-  border-color: $secondary !important;  
+  border-color: $secondary !important;
 }
-.page-item.active .page-link, .page-link:focus {
-  background-color:  $secondary !important;
-  color: #fff!important;
+.page-item.active .page-link,
+.page-link:focus {
+  background-color: $secondary !important;
+  color: #fff !important;
 }
 .page-link {
   color: $dark !important;
@@ -23,13 +24,20 @@
 
 // class
 .class {
-  background-color: #e8e7e7 !important; 
+  background-color: #e8e7e7 !important;
 }
-.class.active
- {
+.class.active {
   background-color: $secondary !important;
 }
-.class:hover, .class:focus {
+.class:hover,
+.class:focus {
   color: #fff !important;
   background-color: $secondary !important;
+}
+.scorll {
+  &_scorllTop {
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+  }
 }
