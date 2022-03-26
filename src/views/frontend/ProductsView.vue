@@ -16,7 +16,7 @@
       Products List
     </h2>
   </header>
-  <div class="container px-3">
+  <div class="container px-3 mb-5">
     <div class="row g-3 mt-4">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">

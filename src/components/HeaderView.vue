@@ -100,11 +100,6 @@
   </div>
 </template>
 <style>
-/* .bgCover {
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-} */
 .bgImg {
   display: flex;
   flex-direction: column;
