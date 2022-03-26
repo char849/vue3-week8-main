@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid product-area text-center pt-5 mt-6">
+  <div class="container-fluid product-area text-center pt-5 mt-md-6 mt-2">
     <div class="container">
       <p class="h6 text-info fw-bold" data-aos="fade-up">
         客製案例 <span class="material-icons-outlined"> work_history </span>
