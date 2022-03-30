@@ -2,7 +2,7 @@
   <ul class="row justify-content-center list-unstyled py-3 px-3">
     <li class="col-md-4">
       <div
-        :class="[step === 'cart' ? 'text-primary' : 'text-muted']"
+        :class="[step === 'cart' ? 'text-primary,bg-secondary' : 'text-muted']"
         class="bg-primary p-3 badge rounded-pill fs-3 w-100 mb-2 bg-light"
       >
         1. 填寫訂單
