@@ -156,8 +156,8 @@
 }
 
 .btn {
-  padding: 19px 47px;
-  letter-spacing: 1px;
+  padding: 19px 47px !important;
+  letter-spacing: 1px !important;
 }
 /* .border {
   border: 1px solid #939393 !important;
