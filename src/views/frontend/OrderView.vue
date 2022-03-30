@@ -54,7 +54,7 @@
             </div>
             <div class="col-md-6">
               <h3>訂單細節</h3>
-              <table class="table" v-if="orderIsBack">
+              <table class="table">
                 <tbody>
                   <tr>
                     <th style="width: 100px">訂單編號</th>
@@ -195,11 +195,7 @@ export default {
       isPaid: false,
     };
   },
-  computed: {
-    orderIsBack() {
-      return Object.keys(this.order).includes("id");
-    },
-  },
+
   methods: {
     // 時間戳
     date(time) {
@@ -228,7 +224,7 @@ export default {
     pay(id) {
       this.$http
         .post(
-          `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/pay/${id}`
+          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${id}`
         )
         .then((res) => {
           if (res.data.success) {
