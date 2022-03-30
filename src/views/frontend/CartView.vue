@@ -23,7 +23,6 @@
           <li class="breadcrumb-item active" aria-current="page">購物車</li>
         </ol>
       </nav>
-      <CheckOutStep step="cart" />
       <div class="mt-3">
         <div class="row justify-content-center">
           <div class="col-md-6">
@@ -243,12 +242,10 @@
 <script>
 import emitter from "@/methods/emitter";
 import NoticeView from "@/components/NoticeView.vue";
-import CheckOutStep from "@/components/CheckOutStep.vue";
 
 export default {
   components: {
     NoticeView,
-    CheckOutStep,
   },
   data() {
     return {
