@@ -26,7 +26,11 @@
                 <span v-else><i class="bi bi-heart"></i></span>
               </div>
 
-              <div class="card_imgHidden">
+              <div
+                class="card_imgHidden"
+                role="button"
+                @click="getProduct(item.id)"
+              >
                 <div
                   href="#"
                   class="card_img bg-cover"
@@ -110,10 +114,6 @@ import emitter from "@/methods/emitter";
 export default {
   data() {
     return {
-      // 購物車列表
-      cartData: {
-        carts: [], // 加入第二層 carts: [] html的清空購物車那邊就可以寫入它的結構了
-      },
       products: [],
       favoriteList: [],
       // 轉成json後，初始化將資料給讀出來，給一個預設值
@@ -174,21 +174,17 @@ export default {
     },
     // 在元件內取得遠端資料
     getProduct(id) {
-      this.isLoading = true;
+      //console.log("route:", this.$route);
+      //const { id } = this.$route.params;
       this.$http
         .get(
           `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`
         )
         .then((res) => {
-          //this.isLoading = false;
-          if (res.data.success) {
-            this.$router.push(`product/${id}`);
-          } else {
-            alert(res.data.message);
-          }
-
-          //console.log(res);
-          //this.product = res.data.product;
+          //console.log(res.data.product);
+          // 將遠端資料取回
+          this.product = res.data.product;
+          this.$router.push(`/product/${id}`);
         });
     },
     addCart(id, qty = 1) {

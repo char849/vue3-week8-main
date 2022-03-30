@@ -273,6 +273,7 @@
       </div>
     </div>
   </div>
+  <Loading :active="isLoading"></Loading>
 </template>
 
 <script>
@@ -287,11 +288,11 @@ export default {
   methods: {
     getArticles() {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/articles`;
-      //this.isLoading = true;
+      this.isLoading = true;
       this.$http
         .get(api)
         .then((res) => {
-          //this.isLoading = false;
+          this.isLoading = false;
           if (res.data.success) {
             this.articles = res.data.articles;
           }

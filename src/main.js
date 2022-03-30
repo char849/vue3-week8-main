@@ -6,6 +6,8 @@ import "bootstrap";
 import "animate.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import VueSweetalert2 from "vue-sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 // 匯入 fontawesome 套件
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -69,6 +71,7 @@ app.component("Loading", Loading);
 // 註冊 Swiperjs 兩個全域元件
 app.component("Swiper", Swiper);
 app.component("SwiperSlide", SwiperSlide);
+app.use(VueSweetalert2);
 
 // 註冊 vee-validate 三個全域元件
 app.component("Form", Form);

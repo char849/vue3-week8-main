@@ -20,8 +20,8 @@
           ></a>
         </li>
         <li class="me-3">
-          <a href="#" target="_blank"
-            ><i class="bi bi-github fs-4 text-danger"></i
+          <a href="https://line.me/ti/p/XYcRD84KAR" target="_blank"
+            ><i class="bi bi-line fs-4 text-danger"></i
           ></a>
         </li>
         <li>

@@ -54,22 +54,6 @@
             </div>
           </div>
         </li>
-        <!-- <li class="col-md-4 py-2">
-          <div
-            class="d-flex d-md-column flex-md-column flex-lg-row align-items-center justify-content-lg-center"
-            data-aos="fade-up"
-            data-aos-offset="0"
-          >
-            <i class="bi bi-box-seam fa-fw fs-1 mb-md-3 mb-lg-0"></i>
-            <i class="fal fa-sack-dollar fa-fw fa-3x mb-md-3 mb-lg-0"></i>
-            <div class="ms-4 ms-md-0 ms-lg-4 text-md-center text-lg-start">
-              <h3 class="h5 text-nowrap">現貨快速配送</h3>
-              <p class="mb-0">
-                工作日16:00前訂單，當日出貨 台灣本島最快隔二日送達
-              </p>
-            </div>
-          </div>
-        </li> -->
       </ul>
     </div>
   </div>

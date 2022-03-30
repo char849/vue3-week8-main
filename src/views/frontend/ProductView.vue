@@ -11,66 +11,129 @@
       Single Product
     </h2>
   </header>
-  <div class="container mt-7">
-    <nav
-      style="--bs-breadcrumb-divider: '>'"
-      aria-label="breadcrumb"
-      class="mb-3"
-    >
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <router-link to="/products">手作模型</router-link>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-          {{ category || "類別" }}
-        </li>
-        <li class="breadcrumb-item">{{ product.title }}</li>
-      </ol>
-    </nav>
-  </div>
-  <section class="bg-light p-3 mb-5">
-    <div class="container">
-      <section>
-        <h4 class="text-primary">產品詳細</h4>
-        <p>{{ productDetail.content }}</p>
-      </section>
-      <section>
-        <h4 class="text-primary">訂購及其他說明</h4>
-        <ul>
-          <li>
-            取餐時間： 套餐類型
-            <span class="text-danger"> 提前三天 </span>
-            預購，其餘商品如不想等候請提前一天訂購。
+  <div class="container px-3 mb-5">
+    <div class="row g-3 mt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <router-link to="/" class="nav-link text-dark active p-0">
+              首頁
+            </router-link>
           </li>
-          <li>
-            外送服務： 請提早確認是否人手充足可以外送，運送範圍為該天販售地點 10
-            公里以內。
-          </li>
-          <li>
-            生鮮食品因其規格問題，會依照其重量在正負範圍 5%
-            ，外觀大小以及厚度一定會略有差異。
-          </li>
-          <li>因無任何添加，食材，飲料皆已新鮮現煮，請把握鮮期使用。</li>
-        </ul>
-      </section>
-    </div>
-  </section>
-</template>
 
+          <li class="breadcrumb-item active" aria-current="page">
+            {{ category || "類別" }}
+          </li>
+        </ol>
+      </nav>
+      <div class="col-lg-5 mt-4 col-lg-6">
+        <div
+          class="card mb-3 bg-cover"
+          :style="{ backgroundImage: 'url(' + imgUrl + ')', height: '350px' }"
+        ></div>
+        <div class="row">
+          <div class="pb-lg-3">
+            <a
+              href="#"
+              v-for="(item, index) in imagesUrl"
+              :key="index"
+              @click.prevent="click(item, index)"
+            >
+              <img class="picture pe-1 pb-2" :src="item" alt="產品圖片" />
+            </a>
+          </div>
+
+          <!--End Controls-->
+        </div>
+      </div>
+      <!-- col end -->
+      <div class="col-lg-6 mt-4">
+        <div class="card">
+          <div class="card-body">
+            <span
+              class="border border-secondary fw-bold text-secondary px-2 me-2"
+            >
+              {{ product.category }}
+            </span>
+            <h1 class="h2 mt-2">{{ product.title }}</h1>
+            <div class="h5" v-if="product.price === product.origin_price">
+              {{ product.price }} 元
+            </div>
+            <div v-else>
+              <del class="h6 text-danger"
+                >原價 {{ product.origin_price }} 元</del
+              >
+              <p class="h4 mb-3 text-info">NT {{ product.price }} 元</p>
+            </div>
+            <p class="h5 text-dark py-2">
+              {{ product.content }}
+            </p>
+            <p class="h5 text-warning lh-base">
+              {{ product.description }}
+            </p>
+            <p>付款方式： ATM 、 信用卡</p>
+            <div class="card-footer d-flex border-0 bg-white my-2 py-3">
+              <select id="" class="form-select w-50 me-1" v-model="qty">
+                <option :value="num" v-for="num in 5" :key="`${num}-${id}`">
+                  {{ num }}
+                </option>
+              </select>
+              <button
+                type="button"
+                class="btn btn-outline-secondary w-50"
+                @click="addCart(item.id, qty)"
+              >
+                <i class="bi bi-cart-plus-fill h4"></i>
+                加入購物車
+              </button>
+              <button
+                type="button"
+                class="favoriteBtn d-center btn btn-outline-secondary w-50 py-2 ms-1"
+                @click="setFavorite(item.id)"
+              >
+                <i class="bi bi-arrow-through-heart fs-4"></i>
+                加入收藏
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<style>
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+  object-fit: cover;
+}
+.btn-outline-secondary:hover {
+  color: #fff;
+}
+.form-select {
+  background-color: #fff;
+  border: 1px solid #f82888;
+}
+.form-select:focus {
+  border: 1px solid #f82888;
+}
+.btn {
+  padding: 0.375rem 0.75rem !important;
+}
+</style>
 <script>
 import emitter from "@/methods/emitter";
 
 export default {
   data() {
     return {
-      product: {}, // 存入單一筆遠端資料
-      qty: 1, // modal中加入購物車的數量
-      cartData: {
-        carts: [], // 14. 加入第二層 carts: [] html的清空購物車那邊就可以寫入它的結構了
-      },
-      num: 1,
-      id: null,
+      products: [],
       category: "",
+      product: {},
+      imgUrl: "",
+      imagesUrl: [],
+      qty: 1,
+      favoriteList: [],
     };
   },
   watch: {
@@ -84,33 +147,65 @@ export default {
         }
       },
     },
-    id() {
-      //console.log(this.id);
-      this.product = {};
-      this.getProduct();
+    favorite: {
+      handle() {
+        // localStorage 自訂欄位，不能存json 必需轉字串
+        // 當資料有變動就做寫入，沒有的話就什麼都不做
+        localStorage.setItem("favoriteList", JSON.stringify(this.favoriteList));
+      },
+      deep: true,
     },
   },
+
   methods: {
-    // 在元件內取得遠端資料
-    getProduct(id) {
+    click(item) {
+      this.imgUrl = item;
+    },
+    getProducts() {
+      // 參數預設值
       this.isLoading = true;
+      this.$http
+        .get(
+          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all` //query 用? 去帶
+        )
+        .then((res) => {
+          console.log(res);
+          //把產品列表存起來，準備呈現在畫面
+          this.products = res.data.products;
+          //this.isLoading = false;
+        });
+    },
+    getProduct(id) {
+      //console.log("route:", this.$route);
+      //const { id } = this.$route.params;
       this.$http
         .get(
           `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`
         )
         .then((res) => {
-          if (res.data.success) {
-            this.isLoading = false;
-            //console.log(res);
-            this.product = res.data.product;
-            this.category = res.data.product.category;
-          } else {
-            this.$router.push("/products");
-          }
+          //console.log(res.data.product);
+          // 將遠端資料取回
+          this.product = res.data.product;
+          this.category = res.data.product.category;
+          this.imgUrl = res.data.product.imageUrl;
+          this.imagesUrl = res.data.product.imagesUrl;
+        });
+    },
+    // 取得購物車內容
+    getCart() {
+      this.isLoading = true;
+      this.$http
+        .get(`${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`)
+        .then((res) => {
+          //console.log("cart:", res);
+          this.cartData = res.data.data;
+          this.isLoading = false;
+          this.getCart();
+          emitter.emit("get-cart");
         });
     },
     addCart(id, qty = 1) {
-      // 5. 加入購物車的資料格式
+      // 加入購物車的資料格式
       const data = {
         product_id: id,
         qty,
@@ -123,19 +218,21 @@ export default {
         ) // 將資料格式帶入
         .then((res) => {
           console.log(res);
-          // 加入購物車後，再重新取得購物車內容
+          // 5. 加入購物車後，再重新取得購物車內容
           //this.getCart();
-          // 讀取完後，清空id
+          // 6. 讀取完後，清空id
           this.isLoadingItem = "";
           // get-cart
           emitter.emit("get-cart");
         });
     },
+    // 取得我的最愛
     getFavorite() {
       const favoriteList = localStorage.getItem("homeFavorite") || [];
       this.favoriteList = JSON.parse(favoriteList);
       emitter.emit("get-favorite");
     },
+    // 存入我的最愛
     setFavorite(id) {
       console.log(id);
       // 查資料裡面，有沒有這個ID
@@ -150,15 +247,10 @@ export default {
       localStorage.setItem("homeFavorite", favoriteStr);
       this.getFavorite();
     },
-    changeImg(e) {
-      const clickImg = e.target.getAttribute("src");
-      const mainImage = document.getElementById("mainImage");
-      mainImage.setAttribute("src", clickImg);
+    mounted() {
+      this.getProduct();
+      this.getProducts();
     },
-  },
-
-  mounted() {
-    this.getProduct();
   },
 };
 </script>

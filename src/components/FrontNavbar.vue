@@ -10,10 +10,10 @@
         </router-link>
       </h1>
       <!-- lg 以下 -->
-      <a
+      <router-link
         href="#"
         class="position-relative d-block d-lg-none ms-auto nav-link"
-        to="/cart"
+        to="/favorite"
       >
         <i
           class="bi bi-box2-heart fs-4"
@@ -23,8 +23,8 @@
           class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
           >1</span
         >
-      </a>
-      <a
+      </router-link>
+      <router-link
         href="#"
         class="position-relative navbar-brand d-lg-none nav-link"
         to="/cart"
@@ -37,7 +37,7 @@
           class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
           >{{ cartData?.carts?.length }}</span
         >
-      </a>
+      </router-link>
 
       <button
         class="navbar-toggler"
@@ -94,7 +94,7 @@
       </div>
       <!-- lg 以上 -->
       <div class="navbar-nav">
-        <a
+        <router-link
           href="#"
           class="position-relative d-flex d-none d-lg-block nav-link"
           to="/favorite"
@@ -109,8 +109,8 @@
           >
             {{ favoriteLen }}</span
           >
-        </a>
-        <a
+        </router-link>
+        <router-link
           href="#"
           class="position-relative d-flex d-none d-lg-block nav-link"
           to="/cart"
@@ -123,7 +123,7 @@
             class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
             >{{ cartData?.carts?.length }}</span
           >
-        </a>
+        </router-link>
       </div>
     </div>
   </nav>

@@ -70,7 +70,11 @@
                 <span v-else><i class="bi bi-heart"></i></span>
               </div>
 
-              <div class="card_imgHidden">
+              <div
+                class="card_imgHidden"
+                role="button"
+                @click="getProduct(item.id)"
+              >
                 <div
                   href="#"
                   class="card_img bg-cover"
@@ -78,6 +82,7 @@
                   :style="`background-image: url(${item.imageUrl})`"
                 ></div>
               </div>
+
               <div class="card-body">
                 <div class="d-flex justify-content-between">
                   <h5 class="card-title">
@@ -169,13 +174,25 @@ export default {
           if (res.data.success) {
             const { products } = res.data;
             this.products = products;
-            //this.pagination = res.data.pagination;
-            //this.paginationHandler(products);
             this.getCategory();
           } else {
             this.$swal(res.data.message, "", "error");
           }
           //this.$emitter.emit("fullScreenLoading", false);
+        });
+    },
+    getProduct(id) {
+      //console.log("route:", this.$route);
+      //const { id } = this.$route.params;
+      this.$http
+        .get(
+          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`
+        )
+        .then((res) => {
+          //console.log(res.data.product);
+          // 將遠端資料取回
+          this.product = res.data.product;
+          this.$router.push(`/product/${id}`);
         });
     },
     addCart(id, qty = 1) {
