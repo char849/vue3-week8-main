@@ -51,7 +51,7 @@
             <router-link
               class="nav-link"
               to="/about"
-              @click="toggleNavHam"
+              @click="closeNavHam"
               :class="[navClassList.nav, navClassList.text]"
               >關於漢文帝</router-link
             >
@@ -60,7 +60,7 @@
             <router-link
               class="nav-link"
               to="/products"
-              @click="toggleNavHam"
+              @click="closeNavHam"
               :class="[navClassList.nav, navClassList.text]"
               >手作模型</router-link
             >
@@ -69,7 +69,7 @@
             <router-link
               class="nav-link"
               to="/course"
-              @click="toggleNavHam"
+              @click="closeNavHam"
               :class="[navClassList.nav, navClassList.text]"
               >課程招生</router-link
             >
@@ -152,6 +152,9 @@ export default {
   methods: {
     toggleNavHam() {
       this.collapse.toggle();
+    },
+    closeNavHam() {
+      this.collapse.hide();
     },
     // 5. 取得購物車內容
     getCart() {
