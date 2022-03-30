@@ -23,7 +23,7 @@
           <li class="breadcrumb-item active" aria-current="page">購物車清單</li>
         </ol>
       </nav>
-      <CheckOutStep />
+      <CheckOutStep :step="order.is_paid ? 'paid' : 'order'" />
       <div class="mt-3">
         <!-- <h5 class="mb-1">訂單已建立完成</h5>
         <p class="text-info">訂單編號: {{ order.id }}</p> -->
@@ -150,3 +150,11 @@ export default {
   },
 };
 </script>
+<style>
+.btn-secondary {
+  background-color: #f82888;
+  color: #ffffff;
+}
+
+
+</style>
