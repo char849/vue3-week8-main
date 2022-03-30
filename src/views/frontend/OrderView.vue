@@ -115,6 +115,16 @@
                   </tr>
                   <tr>
                     <th class="text-secondary">訂單成立</th>
+
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-secondary fw-bold"
+                        @click="goShoping"
+                      >
+                        繼續逛逛
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -289,6 +299,9 @@ export default {
         .catch((error) => {
           this.$swal(error, "", "error");
         });
+    },
+    goShoping() {
+      this.$router.push("/products");
     },
   },
   mounted() {
