@@ -20,8 +20,9 @@
           :class="[navClassList.nav, navClassList.text]"
         ></i
         ><span
+          v-if="favoriteLen > 0"
           class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
-          >1</span
+          >{{ favoriteLen }}</span
         >
       </router-link>
       <router-link
