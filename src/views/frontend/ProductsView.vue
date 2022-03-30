@@ -127,6 +127,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 <script>
 import emitter from "@/methods/emitter";
@@ -145,6 +146,8 @@ export default {
       cartData: {
         carts: [], // 加入第二層 carts: [] html的清空購物車那邊就可以寫入它的結構了
       },
+      isLoadingItem: "", // 局部讀取效果的變數
+      isLoading: false,
     };
   },
 

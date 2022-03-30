@@ -23,7 +23,31 @@
           <li class="breadcrumb-item active" aria-current="page">購物車</li>
         </ol>
       </nav>
-      <div class="mt-3">
+      <div class="mt-2">
+        <ul class="row justify-content-center list-unstyled py-3 px-3">
+          <li class="col-md-4">
+            <div
+              class="bg-primary p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-white"
+            >
+              1. 填寫訂單
+            </div>
+          </li>
+          <li class="col-md-4">
+            <div
+              class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-light text-muted"
+            >
+              2. 訂單結帳
+            </div>
+          </li>
+          <li class="col-md-4">
+            <div
+              class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-light text-muted"
+            >
+              3. 付款完成
+            </div>
+          </li>
+        </ul>
+
         <div class="row justify-content-center">
           <div class="col-md-6">
             <div class="text-end">

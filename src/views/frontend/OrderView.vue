@@ -24,11 +24,34 @@
         </ol>
       </nav>
 
-      <div class="mt-3">
+      <div class="mt-2">
         <!-- <h5 class="mb-1">訂單已建立完成</h5>
         <p class="text-info">訂單編號: {{ order.id }}</p> -->
         <div class="row">
           <template v-if="order.is_paid">
+            <ul class="row justify-content-center list-unstyled py-3 px-3">
+              <li class="col-md-4">
+                <div
+                  class="bg-primary p-3 badge rounded-pill fs-3 w-100 mb-2 bg-light text-muted"
+                >
+                  1. 填寫訂單
+                </div>
+              </li>
+              <li class="col-md-4">
+                <div
+                  class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-light text-muted"
+                >
+                  2. 訂單結帳
+                </div>
+              </li>
+              <li class="col-md-4">
+                <div
+                  class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-white"
+                >
+                  3. 付款完成
+                </div>
+              </li>
+            </ul>
             <div class="col-md-6">
               <h3>用戶資料</h3>
               <table class="table">
@@ -98,6 +121,29 @@
             </div>
           </template>
           <template v-else>
+            <ul class="row justify-content-center list-unstyled py-3 px-3">
+              <li class="col-md-4">
+                <div
+                  class="bg-primary p-3 badge rounded-pill fs-3 w-100 mb-2 bg-light text-muted"
+                >
+                  1. 填寫訂單
+                </div>
+              </li>
+              <li class="col-md-4">
+                <div
+                  class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-secondary text-white"
+                >
+                  2. 訂單結帳
+                </div>
+              </li>
+              <li class="col-md-4">
+                <div
+                  class="p-3 badge rounded-pill fs-3 w-100 mb-2 bg-light text-muted"
+                >
+                  3. 付款完成
+                </div>
+              </li>
+            </ul>
             <div class="col-md-6">
               <h3>用戶資料</h3>
               <table class="table">
@@ -180,10 +226,15 @@
       </div>
     </div>
   </div>
+  <NoticeView></NoticeView>
   <Loading :active="isLoading"></Loading>
 </template>
 <script>
+import NoticeView from "@/components/NoticeView.vue";
 export default {
+  components: {
+    NoticeView,
+  },
   data() {
     return {
       isLoading: false,
@@ -221,9 +272,10 @@ export default {
         });
     },
     pay(id) {
+      console.log("orderID", id);
       this.$http
         .post(
-          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${this.order_id}`
+          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${id}`
         )
         .then((res) => {
           if (res.data.success) {
