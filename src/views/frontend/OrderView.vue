@@ -91,7 +91,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <th>訂單成立</th>
+                    <th class="text-secondary">訂單成立</th>
                   </tr>
                 </tbody>
               </table>
