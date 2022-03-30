@@ -192,7 +192,7 @@ export default {
         user: {},
       },
       orderID: "",
-      isPaid: false,
+      is_paid: false,
     };
   },
 
