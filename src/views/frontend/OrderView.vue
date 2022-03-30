@@ -191,7 +191,6 @@ export default {
       order: {
         user: {},
       },
-      orderID: "",
       is_paid: false,
     };
   },
@@ -204,10 +203,10 @@ export default {
     },
 
     getOrder() {
-      this.orderID = this.$route.params.id;
+      this.orderId = this.$route.params.id;
       this.$http
         .get(
-          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${this.orderID}`
+          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${this.orderId}`
         )
         .then((res) => {
           if (res.data.success) {
@@ -224,7 +223,7 @@ export default {
     pay(id) {
       this.$http
         .post(
-          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${id}`
+          `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/pay/${this.order_id}`
         )
         .then((res) => {
           if (res.data.success) {
