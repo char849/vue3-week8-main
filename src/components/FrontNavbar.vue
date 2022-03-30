@@ -39,7 +39,7 @@
         >
       </router-link>
 
-      <button class="navbar-toggler" type="button" @click="closeNavHam">
+      <button class="navbar-toggler" type="button" @click="toggleNavHam">
         <i
           class="bi bi-justify-right fs-1"
           :class="[navClassList.nav, navClassList.text]"
@@ -171,7 +171,6 @@ export default {
     },
   },
   mounted() {
-    
     this.collapse = new Collapse(this.$refs.collapse);
     this.getCart();
     //當emitter被觸發時，會再次取得購物車品項
@@ -203,7 +202,6 @@ export default {
     });
   },
   unmounted() {
-    
     emitter.off("get-cart");
     emitter.off("get-favorite");
     window.removeEventListener("scroll", () => {
