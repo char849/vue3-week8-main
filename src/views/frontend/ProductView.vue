@@ -73,14 +73,14 @@
             </p>
             <p>付款方式： ATM 、 信用卡</p>
             <div class="card-footer d-flex border-0 bg-white my-2 py-3">
-              <select id="" class="form-select w-50 me-1" v-model="qty">
+              <select id="" class="form-select w-25 me-1" v-model="qty">
                 <option :value="num" v-for="num in 5" :key="`${num}-${id}`">
                   {{ num }}
                 </option>
               </select>
               <button
                 type="button"
-                class="btn btn-outline-secondary w-50"
+                class="btn btn-outline-secondary w-75"
                 @click.prevent="addCart(product.id, qty)"
               >
                 <i class="bi bi-cart-plus-fill h4"></i>
