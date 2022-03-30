@@ -12,7 +12,7 @@
         <router-link
           to="/products"
           role="button"
-          class="btn btn-light fw-bold px-4"
+          class="btn btn-light fw-bold px-4 my-4"
           data-aos="fade-up"
         >
           進來逛逛
