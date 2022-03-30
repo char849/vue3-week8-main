@@ -56,7 +56,7 @@
         </p>
         <router-link
           to="/about"
-          class="col-6 mt-5 fw-bold btn btn-outline-secondary"
+          class="col-8 col-md-6 mt-5 fw-bold btn btn-outline-secondary"
           data-aos="fade-up"
         >
           關於漢文帝
@@ -90,7 +90,7 @@
         </p>
         <router-link
           to="/about"
-          class="col-6 mt-5 fw-bold btn btn-outline-secondary"
+          class="col-8 col-md-6 mt-5 fw-bold btn btn-outline-secondary"
           data-aos="fade-up"
         >
           關於漢文帝

@@ -89,7 +89,7 @@
             <div class="tab-content w-100">
               <div class="tab-pane fade show active" id="tab-pane-1">
                 <div class="row g-4">
-                  <div class="col-md-6" style="min-height: 470px">
+                  <div class="col-md-6" style="min-height: 450px">
                     <div class="position-relative">
                       <img
                         class="position-absolute img-fluid w-100 border rounded p-1"
