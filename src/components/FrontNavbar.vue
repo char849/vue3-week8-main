@@ -22,8 +22,7 @@
         ><span
           v-if="favoriteLen > 0"
           class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
-          >{{ favoriteLen }}</span
-        >
+        ></span>
       </router-link>
       <router-link
         href="#"
@@ -103,8 +102,7 @@
             v-if="favoriteLen > 0"
             class="badge rounded-pill position-absolute translate-middle top-0 mt-2 bg-secondary"
           >
-            {{ favoriteLen }}</span
-          >
+          </span>
         </router-link>
         <router-link
           href="#"
