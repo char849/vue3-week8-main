@@ -23,7 +23,7 @@
           <li class="breadcrumb-item active" aria-current="page">購物車</li>
         </ol>
       </nav>
-      <CheckOutStep step="checkout" />
+      <CheckOutStep step="cart" />
       <div class="mt-3">
         <div class="row justify-content-center">
           <div class="col-md-6">
@@ -268,6 +268,7 @@ export default {
       products: [],
       isLoadingItem: "", // 局部讀取效果的變數
       isLoading: false,
+      orderId: "",
     };
   },
   methods: {
@@ -365,8 +366,8 @@ export default {
 
         .then((res) => {
           this.isLoading = false;
-          const { orderId } = res.data;
-          this.$router.push(`/order/${orderId}`);
+          this.orderId = res.data.orderId;
+          this.$router.push(`/order/${this.orderId}`);
           this.$swal(res.data.message);
           // 15. 當表單送出時，清空資料，resetForm()是 VeeValidate 提供的函式
           this.$refs.form.resetForm();

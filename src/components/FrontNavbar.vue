@@ -39,26 +39,19 @@
         >
       </router-link>
 
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" @click="toggleNavHam">
         <i
           class="bi bi-justify-right fs-1"
           :class="[navClassList.nav, navClassList.text]"
         ></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" ref="collapse">
         <ul class="navbar-nav me-auto mb-4 mb-lg-0 fw-bold">
           <li class="nav-item">
             <router-link
               class="nav-link"
               to="/about"
+              @click="toggleNavHam"
               :class="[navClassList.nav, navClassList.text]"
               >關於漢文帝</router-link
             >
@@ -67,6 +60,7 @@
             <router-link
               class="nav-link"
               to="/products"
+              @click="toggleNavHam"
               :class="[navClassList.nav, navClassList.text]"
               >手作模型</router-link
             >
@@ -75,6 +69,7 @@
             <router-link
               class="nav-link"
               to="/course"
+              @click="toggleNavHam"
               :class="[navClassList.nav, navClassList.text]"
               >課程招生</router-link
             >
@@ -131,6 +126,7 @@
 
 <script>
 import emitter from "@/methods/emitter";
+import Collapse from "bootstrap/js/dist/collapse";
 
 export default {
   data() {
@@ -145,6 +141,7 @@ export default {
         carts: [], // 14. 加入第二層 carts: [] html的清空購物車那邊就可以寫入它的結構了
       },
       favoriteList: [],
+      collapse: "",
     };
   },
   computed: {
@@ -153,6 +150,9 @@ export default {
     },
   },
   methods: {
+    toggleNavHam() {
+      this.collapse.toggle();
+    },
     // 5. 取得購物車內容
     getCart() {
       this.$http
@@ -168,6 +168,7 @@ export default {
     },
   },
   mounted() {
+    this.collapse = new Collapse(this.$refs.collapse);
     this.getCart();
     //當emitter被觸發時，會再次取得購物車品項
     emitter.on("get-cart", () => {

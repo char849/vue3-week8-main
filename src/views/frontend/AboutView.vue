@@ -25,7 +25,7 @@
               首頁
             </router-link>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">關於我們</li>
+          <li class="breadcrumb-item active" aria-current="page">關於漢文帝</li>
         </ol>
       </nav>
       <div
