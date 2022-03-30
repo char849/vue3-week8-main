@@ -12,7 +12,7 @@
         <router-link
           to="/products"
           role="button"
-          class="btn btn-light fw-bold px-4 my-4"
+          class="btn btn02 btn-light fw-bold px-4 my-4"
           data-aos="fade-up"
         >
           進來逛逛
@@ -56,7 +56,7 @@
         </p>
         <router-link
           to="/about"
-          class="col-8 col-md-6 mt-5 fw-bold btn btn-outline-secondary"
+          class="col-8 col-md-6 mt-5 fw-bold btn btn02 btn-outline-secondary"
           data-aos="fade-up"
         >
           關於漢文帝
@@ -90,7 +90,7 @@
         </p>
         <router-link
           to="/about"
-          class="col-8 col-md-6 mt-5 fw-bold btn btn-outline-secondary"
+          class="col-8 col-md-6 mt-5 fw-bold btn btn02 btn-outline-secondary"
           data-aos="fade-up"
         >
           關於漢文帝
@@ -155,7 +155,7 @@
   }
 }
 
-.btn {
+.btn02 {
   padding: 19px 47px !important;
   letter-spacing: 1px !important;
 }

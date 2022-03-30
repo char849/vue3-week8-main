@@ -53,7 +53,7 @@
             <div class="text-end">
               <!-- 14. js data 那邊要定義到第二層 carts: [] 才能使用，如果寫成 cartData.carts?.( ?.可選串連) length [es6 的寫法] 就不用定義第二層 carts -->
               <button
-                class="btn btn-outline-secondary fw-bold py-3 px-4 mb-4"
+                class="btn btn02 btn-outline-secondary fw-bold py-3 px-4 mb-4"
                 type="button"
                 @click="delAllCarts"
                 :disabled="cartData.carts.length === 0"
@@ -79,7 +79,7 @@
                       <!-- 8. 刪除的方法帶入id,removeCartItem(item.id) -->
                       <button
                         type="button"
-                        class="btn btn-outline-secondary btn-sm"
+                        class="btn btn01 btn-outline-secondary btn-sm"
                         @click="removeCartItem(item.id)"
                         :disabled="isLoadingItem === item.id"
                       >
@@ -247,7 +247,7 @@
             <div class="text-end">
               <button
                 type="submit"
-                class="btn btn-secondary py-3 px-4 fw-bold"
+                class="btn btn02 btn-secondary py-3 px-4 fw-bold"
                 :disabled="
                   Object.keys(errors).length > 0 || cartData.carts.length === 0
                 "
@@ -416,6 +416,7 @@ export default {
 }
 .form-control:focus {
   border-color: 1px solid #ced4da;
+  color: #f82888 !important;
 }
 .btn-secondary {
   background-color: #f82888;
@@ -426,8 +427,17 @@ export default {
   background-color: transparent;
   color: #f82888 !important;
 }
-.btn {
+.btn-secondary:focus {
+  border-color: #f82888;
+  background-color: transparent;
+  color: #f82888 !important;
+}
+.btn01 {
   padding: 00.25rem 0.5rem !important;
+}
+.btn02 {
+  padding: 19px 47px !important;
+  letter-spacing: 1px !important;
 }
 .input-group-text,
 .form-select {
@@ -436,5 +446,6 @@ export default {
 .form-control:focus {
   border: 1px solid #ced4da !important;
   background-color: #fff;
+  color: #303840 !important;
 }
 </style>
