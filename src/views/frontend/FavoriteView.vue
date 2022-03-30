@@ -197,8 +197,16 @@ export default {
       if (this.favoriteList.includes(id)) {
         const index = this.favoriteList.findIndex((item) => item === id);
         this.favoriteList.splice(index, 1);
+        this.$swal({
+          text: "己成功移除",
+          icon: "success",
+        });
       } else {
         this.favoriteList.push(id);
+        this.$swal({
+          text: "成功收藏",
+          icon: "success",
+        });
       }
       const favoriteStr = JSON.stringify(this.favoriteList);
       localStorage.setItem("homeFavorite", "");

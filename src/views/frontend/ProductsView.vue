@@ -113,6 +113,7 @@
                   <button
                     type="button"
                     class="btn btn-outline-secondary w-100"
+                    :disabled="isLoadingItem === item.id"
                     @click="addCart(item.id)"
                   >
                     <i class="bi bi-cart-plus-fill h4"></i>
@@ -202,17 +203,20 @@ export default {
         qty,
       };
       this.isLoadingItem = id; // 6. 帶入讀取的id
+      this.isLoading = true;
       this.$http
         .post(
           `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`,
           { data }
         ) // 5. 將資料格式帶入
         .then((res) => {
+          this.isLoading = false;
           console.log(res);
           // 5. 加入購物車後，再重新取得購物車內容
           //this.getCart();
           // 6. 讀取完後，清空id
           this.isLoadingItem = "";
+          this.$swal(res.data.message);
           // get-cart
           emitter.emit("get-cart");
         });
@@ -228,8 +232,16 @@ export default {
       if (this.favoriteList.includes(id)) {
         const index = this.favoriteList.findIndex((item) => item === id);
         this.favoriteList.splice(index, 1);
+        this.$swal({
+          text: "己成功移除",
+          icon: "success",
+        });
       } else {
         this.favoriteList.push(id);
+        this.$swal({
+          text: "成功收藏",
+          icon: "success",
+        });
       }
       const favoriteStr = JSON.stringify(this.favoriteList);
       localStorage.setItem("homeFavorite", "");

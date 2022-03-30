@@ -81,6 +81,7 @@
       </template>
     </div>
   </div>
+  <Loading :active="isLoading"></Loading>
 </template>
 <style>
 .product-area {
@@ -116,6 +117,7 @@ export default {
     return {
       products: [],
       favoriteList: [],
+      isLoading: false,
       // 轉成json後，初始化將資料給讀出來，給一個預設值
       //favorite: JSON.parse(localStorage.getItem("favorite")) || [],
       swiper: null,
@@ -194,6 +196,7 @@ export default {
         qty,
       };
       this.isLoadingItem = id; // 帶入讀取的id
+      this.isLoading = true;
       this.$http
         .post(
           `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`,
@@ -204,7 +207,9 @@ export default {
           // 5. 加入購物車後，再重新取得購物車內容
           //this.getCart();
           // 6. 讀取完後，清空id
+          this.isLoading = false;
           this.isLoadingItem = "";
+          this.$swal(res.data.message);
           // get-cart
           emitter.emit("get-cart");
         });
@@ -213,6 +218,7 @@ export default {
     getFavorite() {
       const favoriteList = localStorage.getItem("homeFavorite") || [];
       this.favoriteList = JSON.parse(favoriteList);
+
       emitter.emit("get-favorite");
     },
     // 存入我的最愛
@@ -222,8 +228,16 @@ export default {
       if (this.favoriteList.includes(id)) {
         const index = this.favoriteList.findIndex((item) => item === id);
         this.favoriteList.splice(index, 1);
+        this.$swal({
+          text: "己成功移除",
+          icon: "success",
+        });
       } else {
         this.favoriteList.push(id);
+        this.$swal({
+          text: "成功收藏",
+          icon: "success",
+        });
       }
       const favoriteStr = JSON.stringify(this.favoriteList);
       localStorage.setItem("homeFavorite", "");

@@ -81,18 +81,10 @@
               <button
                 type="button"
                 class="btn btn-outline-secondary w-50"
-                @click="addCart(item.id, qty)"
+                @click.prevent="addCart(product.id, qty)"
               >
                 <i class="bi bi-cart-plus-fill h4"></i>
                 加入購物車
-              </button>
-              <button
-                type="button"
-                class="favoriteBtn d-center btn btn-outline-secondary w-50 py-2 ms-1"
-                @click="setFavorite(item.id)"
-              >
-                <i class="bi bi-arrow-through-heart fs-4"></i>
-                加入收藏
               </button>
             </div>
           </div>
@@ -100,6 +92,7 @@
       </div>
     </div>
   </div>
+  <Loading :active="isLoading"></Loading>
 </template>
 <style>
 .bg-cover {
@@ -133,7 +126,7 @@ export default {
       imgUrl: "",
       imagesUrl: [],
       qty: 1,
-      favoriteList: [],
+      cart_id: [],
     };
   },
   watch: {
@@ -222,31 +215,12 @@ export default {
           //this.getCart();
           // 6. 讀取完後，清空id
           this.isLoadingItem = "";
+          this.$swal(res.data.message);
           // get-cart
           emitter.emit("get-cart");
         });
     },
-    // 取得我的最愛
-    getFavorite() {
-      const favoriteList = localStorage.getItem("homeFavorite") || [];
-      this.favoriteList = JSON.parse(favoriteList);
-      emitter.emit("get-favorite");
-    },
-    // 存入我的最愛
-    setFavorite(id) {
-      console.log(id);
-      // 查資料裡面，有沒有這個ID
-      if (this.favoriteList.includes(id)) {
-        const index = this.favoriteList.findIndex((item) => item === id);
-        this.favoriteList.splice(index, 1);
-      } else {
-        this.favoriteList.push(id);
-      }
-      const favoriteStr = JSON.stringify(this.favoriteList);
-      localStorage.setItem("homeFavorite", "");
-      localStorage.setItem("homeFavorite", favoriteStr);
-      this.getFavorite();
-    },
+
     mounted() {
       this.getProduct();
       this.getProducts();
