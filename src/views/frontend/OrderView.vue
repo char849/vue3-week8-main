@@ -35,19 +35,19 @@
                 <tbody v-if="order.user">
                   <tr>
                     <th style="width: 100px">姓名</th>
-                    <td>{{ order.user?.name }}</td>
+                    <td>{{ order.user.name }}</td>
                   </tr>
                   <tr>
                     <th>Email</th>
-                    <td>{{ order.user?.email }}</td>
+                    <td>{{ order.user.email }}</td>
                   </tr>
                   <tr>
                     <th>電話</th>
-                    <td>{{ order.user?.tel }}</td>
+                    <td>{{ order.user.tel }}</td>
                   </tr>
                   <tr>
                     <th>地址</th>
-                    <td>{{ order?.user?.address }}</td>
+                    <td>{{ order?.user.address }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -104,19 +104,19 @@
                 <tbody v-if="order.user">
                   <tr>
                     <th style="width: 100px">姓名</th>
-                    <td>{{ order.user?.name }}</td>
+                    <td>{{ order.user.name }}</td>
                   </tr>
                   <tr>
                     <th>Email</th>
-                    <td>{{ order.user?.email }}</td>
+                    <td>{{ order.user.email }}</td>
                   </tr>
                   <tr>
                     <th>電話</th>
-                    <td>{{ order.user?.tel }}</td>
+                    <td>{{ order.user.tel }}</td>
                   </tr>
                   <tr>
                     <th>地址</th>
-                    <td>{{ order?.user?.address }}</td>
+                    <td>{{ order.user.address }}</td>
                   </tr>
                 </tbody>
               </table>
