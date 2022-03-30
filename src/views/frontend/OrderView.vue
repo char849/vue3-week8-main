@@ -23,7 +23,7 @@
           <li class="breadcrumb-item active" aria-current="page">購物車清單</li>
         </ol>
       </nav>
-      <CheckOutStep :step="order.is_paid ? 'paid' : 'order'" />
+      <CheckOutStep />
       <div class="mt-3">
         <!-- <h5 class="mb-1">訂單已建立完成</h5>
         <p class="text-info">訂單編號: {{ order.id }}</p> -->
@@ -92,38 +92,6 @@
                   </tr>
                 </tbody>
               </table>
-              <h3>選購商品</h3>
-              <table class="table">
-                <thead>
-                  <tr></tr>
-                </thead>
-                <tbody>
-                  <tr v-for="item in order.products" :key="item.id">
-                    <th>
-                      {{ item.product.title }}
-                    </th>
-                    <td>{{ item.qty }} / {{ item.product.unit }}</td>
-                    <td class="text-end">
-                      {{ item.final_total }}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="d-flex justify-content-end">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                    v-model="order.is_paid"
-                  />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    <span v-if="order.is_paid">已付款</span>
-                    <span v-else>未付款</span>
-                  </label>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -146,6 +114,7 @@ export default {
         user: {},
       },
       orderID: "",
+      isPaid: false,
     };
   },
 
@@ -163,7 +132,7 @@ export default {
         .get(
           `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${this.orderID}`
         )
-        .then((res) => {          
+        .then((res) => {
           if (res.data.success) {
             const { order } = res.data;
             this.order = order;
