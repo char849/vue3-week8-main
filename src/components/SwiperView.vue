@@ -67,7 +67,7 @@
                 <div class="card-footer border-0 bg-white my-2">
                   <button
                     type="button"
-                    class="btn btn-outline-secondary w-100"
+                    class="btn btn02 btn-outline-secondary w-100"
                     @click="addCart(item.id)"
                   >
                     <i class="bi bi-cart-plus-fill h4"></i>
@@ -91,6 +91,10 @@
   background-size: cover;
   background-position: center center;
   object-fit: cover;
+}
+.btn02 {
+  padding: 19px 47px !important;
+  letter-spacing: 1px !important;
 }
 
 .swiper-button-next,
